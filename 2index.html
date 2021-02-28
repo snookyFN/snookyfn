@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Тест на знание фортнайт</title>
+  <link rel="stylesheet" href="2style.css">
+ </head>
+ <body>
+        <div class="header">
+            <div class="top">
+                <a href="#" class="navLink">&#9776;</a>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li><a href="https://snookyfn.github.io/snookyfn/index.html">Главная</a></li>
+                    <li><a href="#">Данная страница</a></li>
+                    <li><a href="#">Статистики</a></li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="2main.js"></script>
+        
+    
+    
+    
+    <span style='font-size:12.0pt;margin-left: 65%'>
+        
+        <script type="text/javascript">
+        // Заголовок страницы (h1)
+        // Подзаголовок (h2)
+        var subtitle = "Тест на знание фортнайта";
+        // Это ваши вопросы
+        var questions=[
+        {
+            text: "В каком месяце проводился Fortnite World Cup?",
+            answers: [" 30 июля 2020",
+                  "с 21 по 23 июля 2019",
+                  "с 26 по 28 июля 2019"],
+            correctAnswer: 2 
+        },
+        {
+            text: "Когда была впервые добавлена эпическая и легендарная помпа?",
+            answers: ["8 сезон",
+                  "6 сезон",
+                  "3 сезон"],
+            correctAnswer: 1
+        },
+        {
+            text: "Когда впервые были выпущены первые футболисты?",
+            answers: ["4 сезон",
+                  "6 сезон",
+                  "5 сезон"],  
+            correctAnswer: 0
+        },
+
+        {
+            text: "Какое оружие было в самом первом сезоне и через малое время было удалено?",
+            answers: ["Легендарная помпа",
+                  "Запатрон",
+                  "Мифическйи гранатомёт"],  
+            correctAnswer: 1
+        },
+        {
+            text: "В какой набор входит скин пришелец?",
+            answers: ["Семеро",
+                  "Космическая охота",
+                  "Легенды инного мира"],  
+            correctAnswer: 0
+        },
+
+        {
+            text: "Выходил ли в магазин предметов рейдер изгой??",
+            answers: ["Да",
+                  "Нет"],  
+            correctAnswer: 1
+        },
+
+        {
+            text: "Функция которая повышает фпс в игре называется:",
+            answers: ["FPS Boost+",
+                  "Nvidia Low Latency",
+                  "Режим производительности"],  
+            correctAnswer: 2
+        },
+
+        {
+            text: "Какой стример(игрок) считался самым сильным в 1-3 сезонах?",
+            answers: ["Ninja",
+                  "Tfue",
+                  "Symhfunny"],  
+            correctAnswer: 0
+        },
+
+        {
+            text: "С кем была первая колоборация в фортнайт",
+            answers: ["DC",
+                  "Marvel",
+                  "God Of War"],  
+            correctAnswer: 1
+        },
+
+        
+        ];
+        
+        var yourAns = new Array;
+        var score = 0;
+        
+        function Engine(question, answer) {yourAns[question]=answer;}
+        
+        function Score(){
+           var answerText = "Результаты:\n";
+           for(var i = 0; i < yourAns.length; ++i){
+            var num = i+1;
+            answerText=answerText+"\n    Вопрос №"+ num +"";
+            if(yourAns[i]!=questions[i].correctAnswer){
+                answerText=answerText+"\n    Правильный ответ: " +
+                questions[i].answers[questions[i].correctAnswer] + "\n";
+              }
+                else{
+                answerText=answerText+": Верно! \n";
+                ++score;
+                }
+               }
+        
+           answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
+        
+           alert(answerText);
+           yourAns = [];
+           score = 0;
+           clearForm("quiz");
+        }
+        function clearForm(name) {
+           var f = document.forms[name];
+           for(var i = 0; i < f.elements.length; ++i) {
+            if(f.elements[i].checked)
+                f.elements[i].checked = false;
+        }
+        }
+        </script>
+        
+        <style>
+        span.quest {font-weight: bold;}
+        </style>
+        
+        <h1><script>document.write(title)</script></h1>
+        <h2><script>document.write(subtitle)</script></h2>
+        
+        <form name="quiz">
+        <ol>
+        <script>
+        for(var q=0; q<questions.length; ++q) {
+           var question = questions[q];
+           var idx = 1 + q;
+        
+           document.writeln('<li><span class="quest">' + question.text + '</span><br/>');
+           for(var i in question.answers) {
+            document.writeln('<input type=radio name="q' + idx + '" value="' + i +
+            '" onClick="Engine(' + q + ', this.value)">' + question.answers[i] + '<br/>');
+        }
+        }
+        </script>
+        </ol>
+        <input type="button" onClick="Score()" value="Проверить результаты" />
+        
+        </form>
+        
+ </body>
+</html>
